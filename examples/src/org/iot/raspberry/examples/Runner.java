@@ -53,8 +53,8 @@ public class Runner {
         throw new IllegalArgumentException("You must provide either DIO or PI4J implementation");
     }
     */
-    
-    GrovePi grovePi = new GrovePi4J();
+    Context pi4j = Pi4J.newAutoContext();
+    GrovePi grovePi = new GrovePi4J(pi4j);
     Example example = (Example) Class.forName("org.iot.raspberry.examples." + args[0]).newInstance();
     System.out.println("RUNNING EXAMPLE: " + args[0] + " USING: PI4J");
     final ExecutorService runner = Executors.newSingleThreadExecutor();

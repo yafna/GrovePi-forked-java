@@ -9,7 +9,8 @@ import org.iot.raspberry.grovepi.pi4j.GrovePi4J;
 public class Main {
 
   public static void main(String[] args) throws Exception {
-    GrovePi grovePi = new GrovePi4J();
+    Context pi4j = Pi4J.newAutoContext();
+    GrovePi grovePi = new GrovePi4J(pi4j);
     //your stuff here
     int pin = 4;
     org.iot.raspberry.grovepi.devices.GroveLed led = new GroveLed(grovePi, pin);
